@@ -19,5 +19,5 @@ output "public_subnets" {
 }
 
 output "vpc_id" {
-  value = "???"
+  value = "${aws_vpc.vpc.id}"
 }
