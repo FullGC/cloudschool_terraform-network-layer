@@ -14,12 +14,12 @@ resource "aws_nat_gateway" "gw" {
 }
 
 resource "aws_route_table" "public" {
-  vpc_id = "${aws_vpc.vpc.id}"
+  vpc_id = aws_vpc.vpc.id
   tags = { Name = "route-public" }
 }
 
 resource "aws_route_table" "private" {
-  vpc_id = "${aws_vpc.vpc.id}"
+  vpc_id = aws_vpc.vpc.id
   tags = { Name = "$route-private" }
 }
 
