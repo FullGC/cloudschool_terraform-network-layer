@@ -3,7 +3,7 @@ resource "aws_eip" "nat_eip" {
 }
 
 resource "aws_internet_gateway" "vpc" {
-  vpc_id = "${aws_vpc.vpc.id}"
+  vpc_id = aws_vpc.vpc.id
 }
 
 resource "aws_nat_gateway" "gw" {

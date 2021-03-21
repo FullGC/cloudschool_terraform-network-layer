@@ -26,6 +26,6 @@ variable "enable_dns_support" {
 }
 
 variable "vpc_cidr" {
-  type = "string"
+  type = string
     description = "IP prefix of main vpc"
 }
