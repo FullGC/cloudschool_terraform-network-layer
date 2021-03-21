@@ -8,7 +8,7 @@ resource "aws_internet_gateway" "vpc" {
 
 resource "aws_nat_gateway" "gw" {
     allocation_id = aws_eip.nat_eip.id
-    subnet_id = "${element(aws_subnet.public.*.id, 0)}"
+    subnet_id = element(aws_subnet.public.*.id, 0)
 
     depends_on = [ aws_internet_gateway.vpc ]
 }
@@ -24,14 +24,14 @@ resource "aws_route_table" "private" {
 }
 
 resource "aws_route_table_association" "private" {
-  count = "${length(compact(split(",", var.private_subnets)))}"
-  subnet_id = "${element(aws_subnet.private.*.id, count.index)}"
+  count = length(compact(split(",", var.private_subnets)))
+  subnet_id = element(aws_subnet.private.*.id, count.index)
   route_table_id = "${aws_route_table.private.id}"
 }
 
 resource "aws_route_table_association" "public" {
-  count = "${length(compact(split(",", var.public_subnets)))}"
-  subnet_id = "${element(aws_subnet.public.*.id, count.index)}"
+  count = length(compact(split(",", var.public_subnets)))
+  subnet_id = element(aws_subnet.public.*.id, count.index)
   route_table_id = "${aws_route_table.public.id}"
 }
 
