@@ -11,7 +11,7 @@ variable "public_subnets" {
 }
 
 variable "region" {
-  type = "string"
+  type = string
 }
 
 variable "azs" { }
