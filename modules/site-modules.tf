@@ -20,8 +20,8 @@ module "vpc" {
   environment = "workshop-production"
   region = "us-east-1"
   vpc_cidr =  "172.18.0.0/18"
-  private_subnets = "172.18.0.0/19"  
-  public_subnets  =   "172.18.32.0/19"
+  private_subnets = "172.18.0.0/20,172.18.16.0/20"  
+  public_subnets  =   "172.18.32.0/20,172.18.48.0/20"
 
   //multiple azs neede to avoid an error in when applyin aws_db_subnet_group.default-subnet-group
   azs  =  "us-east-1a, us-east-1b"
